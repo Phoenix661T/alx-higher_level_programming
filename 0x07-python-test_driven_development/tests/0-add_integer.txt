@@ -1,0 +1,97 @@
+#  ===============================
+#  TESTS FOR 0-add_integer MODULE
+#  ===============================
+
+Importing the module:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+__________________________________________________________
+Adding two integers:
+>>> print(add_integer(1, 2))
+3
+
+__________________________________________________________
+Passing a positive integer to a and b is empty:
+>>> print(add_integer(2))
+100
+
+__________________________________________________________
+Passing a negative integer to a and b is empty:
+>>> print(add_integer(-2))
+96
+
+__________________________________________________________
+Add a as a float and b as a negative integer:
+>>> print(add_integer(100.3, -2))
+98
+
+__________________________________________________________
+Add a as a negative integer and b as a float:
+>>> print(add_integer(-2, 100.3))
+98
+
+__________________________________________________________
+Adding a as an integer and b as a string:
+>>> print(add_integer(4, "School"))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+__________________________________________________________
+Adding a as an string and b as an int:
+>>> print(add_integer("School", 4))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+__________________________________________________________
+Adding a as None:
+>>> print(add_integer(None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+__________________________________________________________
+Passing a negative float to a and b is empty:
+>>> print(add_integer(-2.1234))
+96
+
+__________________________________________________________
+Passing a negative float with many decimals to a and b is empty:
+>>> print(add_integer(-2.1234123456123456234567813245))
+96
+
+__________________________________________________________
+Passing non-real numbers to a and b:
+>>> print(add_integer(3+5j, 2+4j))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+__________________________________________________________
+Passing a non-real numbers to b:
+>>> print(add_integer(3, 2+4j))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+__________________________________________________________
+Passing a list to a and an integer to b:
+>>> print(add_integer([3, 2], 2))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+__________________________________________________________
+Passing a list to b and an integer to a:
+>>> print(add_integer(2, [3, 2]))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+__________________________________________________________
+Passing an infinity float value to a:
+>>> print(add_integer(float('inf')))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
